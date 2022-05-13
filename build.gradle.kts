@@ -6,13 +6,13 @@ plugins {
 }
 
 scmVersion {
-//    tag.apply {
-//        deserialize = KotlinClosure3<TagProperties, ScmPosition, String, String>(
-//            { tagProperties, scmPosition, tag ->
-//                ""
-//            }
-//        )
-//    }
+    tag.apply {
+        prefix = ""
+    }
+    nextVersion.apply {
+        suffix = "next"
+    }
+    versionIncrementer("incrementPrerelease")
 }
 
 group = "eu.withoutaname.test"
