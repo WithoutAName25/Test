@@ -1,2 +1,2 @@
 # Test
-Current version: 3.1.2-beta.2
+Current version: 7.0.0-alpha.1
