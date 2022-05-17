@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to mark for the next release.
+        required: true
+        type: string
+jobs:
+  markVersion:
+    name: Mark version (${{ github.event.inputs.version }}) for next release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git fetch --tags --unshallow
+          ./gradlew markNextVersion -Prelease.version=${{ github.event.inputs.version }}
