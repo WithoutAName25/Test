@@ -4,4 +4,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Fetch tags # Required for axion-release-plugin
+        run: git fetch --tags --unshallow
       - run: ./gradlew cV
